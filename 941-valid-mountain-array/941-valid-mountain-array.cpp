@@ -6,7 +6,6 @@ public:
         while(i+1 < N && arr[i]< arr[i+1]) i++;
         if(i == 0 || i == N-1) return false;
         while(i+1 < N && arr[i] > arr[i+1]) i++;
-        if(i == N-1) return true;
-        return false;
+        return (i == N-1);
     }
 };
