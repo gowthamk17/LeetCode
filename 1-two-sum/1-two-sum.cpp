@@ -7,10 +7,11 @@ public:
                 if(nums[i] + nums[j] == target){
                     output.push_back(i);
                     output.push_back(j);
-                    break;
+                    goto jump;
                 }
             }
         }
+        jump:
         return output;
     }
 };
