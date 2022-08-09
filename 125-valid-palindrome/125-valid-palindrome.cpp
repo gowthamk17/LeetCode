@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isPalindrome(string s) {
         string rstr;
-        for(char c: s){
+        for(const char &c: s){
             if(isalnum(c))
                 rstr.push_back(tolower(c));   
         }
