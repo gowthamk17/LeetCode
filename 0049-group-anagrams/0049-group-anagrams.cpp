@@ -1,28 +1,25 @@
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> output;
+        if(strs.size() == 1) {
+            output.push_back(strs);
+            return output;
+        }
         unordered_map<string, vector<string>>  map;
         for(int i = 0; i < strs.size(); i++) {
-            string key = getKey(strs[i]);
-            map[key].push_back(strs[i]);
-
+            string str = strs[i];
+            sort(str.begin(), str.end());
+            if(map.find(str) != map.end()) {
+                map[str].push_back(strs[i]);
+            } else {
+                vector<string> strList = {strs[i]};
+                map[str] = strList;
+            }  
         }
-        vector<vector<string>> output;
-        for(auto it = map.begin(); it != map.end(); it++) {
-            output.push_back(it->second);
+        for(const auto &[key, value] : map) {
+            output.push_back(value);
         }
         return output;
-    }
-private:
-    string getKey(string str){
-        int freq[26] = {0};
-        for(int i = 0; i < str.size(); i++) {
-            freq[str[i] - 'a']++;
-        }
-        string key = "";
-        for(int i = 0; i < 26; i++) {
-            key.append(to_string(freq[i] + 'a'));
-        }
-        return key;
     }
 };
