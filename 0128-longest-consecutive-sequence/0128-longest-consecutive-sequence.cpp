@@ -1,7 +1,7 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        std::set<int> mySet(nums.begin(), nums.end());
+        std::unordered_set<int> mySet(nums.begin(), nums.end());
         int longest;
         for(auto n : nums) {
             int length = 0;
