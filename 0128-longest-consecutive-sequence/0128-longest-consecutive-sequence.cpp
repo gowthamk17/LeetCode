@@ -5,9 +5,10 @@ public:
         int longest;
         for(auto &n : mySet) {
             int length = 0;
-            if(mySet.find(n-1) == mySet.end()) {
-                while(mySet.find(n+length) != mySet.end()) {
-                    length++;
+            if(!mySet.count(n - 1)) {
+                ++length;
+                while(mySet.count(n+length)) {
+                    ++length;
                 }
                 longest = std::max(longest, length);
             }
