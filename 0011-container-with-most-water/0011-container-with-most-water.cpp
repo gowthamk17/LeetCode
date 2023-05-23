@@ -9,9 +9,9 @@ public:
             curr = (j - i) * min(height[i], height[j]);
             area = max(area, curr);
             if(height[i] <= height[j]) {
-                ++i;
+                i++;
             } else {
-                --j;
+                j--;
             }
         }
         return area;
