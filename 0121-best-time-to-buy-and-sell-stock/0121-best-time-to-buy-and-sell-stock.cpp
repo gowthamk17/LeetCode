@@ -6,11 +6,10 @@ public:
             if(prices[l] < prices[r]) {
                 int diff = prices[r] - prices[l];
                 profit = max(profit, diff);
-                r++;
             } else {
                 l = r;
-                r++;
             }
+            r++;
         }
         return profit;
     }
