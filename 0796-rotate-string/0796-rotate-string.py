@@ -1,5 +1,9 @@
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
+        if len(s) == 0:
+            return True
         if s == goal:
             return True
         s_len = len(s)
