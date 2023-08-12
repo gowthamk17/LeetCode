@@ -6,9 +6,14 @@ class Solution:
             return True
         if s == goal:
             return True
-        s_len = len(s)
-        for i in range(s_len):
-            s = s[-1] + s[:-1]
-            if s == goal:
-                return True
-        return False
+        # s_len = len(s)
+        # for i in range(s_len):
+        #     s = s[-1] + s[:-1]
+        #     if s == goal:
+        #         return True
+        # return False
+        s = s + s
+        if s.find(goal) > -1:
+            return True
+        else:
+            return False
