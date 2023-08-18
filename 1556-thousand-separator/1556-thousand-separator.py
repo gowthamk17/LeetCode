@@ -3,8 +3,7 @@ class Solution:
         if n < 1000:
             return str(n)
         else:
-            s = str(n)
-            s = s[::-1]
+            s = str(n)[::-1]
             slist = []
             for i in range(0,len(s), 3):
                 slist.append(s[i:i+3])
