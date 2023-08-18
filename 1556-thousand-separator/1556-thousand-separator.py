@@ -8,6 +8,4 @@ class Solution:
             slist = []
             for i in range(0,len(s), 3):
                 slist.append(s[i:i+3])
-            s = '.'.join(slist)[::-1]
-            return s
-            
+            return '.'.join(slist)[::-1]            
