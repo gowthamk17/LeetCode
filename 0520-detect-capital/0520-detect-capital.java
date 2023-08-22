@@ -1,23 +1,32 @@
 class Solution {
     public boolean detectCapitalUse(String word) {
+        if (word.length() == 1) {
+                return true;
+        }
         if (Character.isUpperCase(word.charAt(0))) {
-            if (word.length() == 1) {
+            if(Character.isUpperCase(word.charAt(1))) {
+                if(isAllUpper(word.substring(1))) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                if(isAllLower(word.substring(1))) {
+                    return true;
+                }
+            }
+        }  
+        else {
+            if(isAllLower(word.substring(1))) {
                 return true;
             }
-            if (isAllUpper(word.substring(1, word.length()))) {
-                return true;
-            } else if (isAllLower(word.substring(1, word.length()))) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            if (isAllLower(word.substring(1))) {
-                return true;
-            } else {
+            else {
                 return false;
             }
         }
+        return false;
     }
     
     public static boolean isAllUpper(String str) {
