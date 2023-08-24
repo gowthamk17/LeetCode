@@ -17,11 +17,9 @@ class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
         if(root == null) return null;
         if(key < root.val) {
-            root.left = this.deleteNode(root.left, key);
-            return root;    
+            root.left = this.deleteNode(root.left, key);    
         } else if(key > root.val) {
             root.right = this.deleteNode(root.right, key);
-            return root;
         } else {
             if(root.left == null) {
                 return root.right;
@@ -34,8 +32,8 @@ class Solution {
                 }
                 root.val = min.val;
                 root.right = this.deleteNode(root.right, min.val);   
-                return root;
             }
         }
+        return root;
     }
 }
