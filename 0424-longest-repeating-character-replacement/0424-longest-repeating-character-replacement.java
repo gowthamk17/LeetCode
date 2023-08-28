@@ -1,15 +1,18 @@
-class Solution:
-    def characterReplacement(self, s: str, k: int) -> int:
-        count = {}
-        res = 0
-        l = 0
-        maxf = 0
-        for r in range(len(s)):
-            count[s[r]] = 1 + count.get(s[r], 0)
-            maxf = max(maxf, count[s[r]])
-            if (r-l+1) - maxf > k:
-                count[s[l]] -= 1
-                l += 1
-            res = max(res, r-l+1)
-        return res
-                
+class Solution {
+    public int characterReplacement(String s, int k) {
+        HashMap<Character, Integer> countMap = new HashMap<>();
+        int result = 0;
+        int left = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char c = s.charAt(right);
+            int count = countMap.getOrDefault(c, 0);
+            countMap.put(c, count+1);
+            if((right-left+1) - Collections.max(countMap.values()) > k) {
+                countMap.put(s.charAt(left), countMap.get(s.charAt(left))-1);
+                left++;
+            }
+            result = Math.max(result, right-left+1);
+        }
+        return result;
+    }
+}
