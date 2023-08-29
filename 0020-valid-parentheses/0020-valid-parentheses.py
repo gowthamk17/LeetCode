@@ -1,15 +1,12 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        pdic = {"(": ")", "[":"]", "{":"}"}
-        stack = list()
-        for i in range(len(s)):
-            if s[i] in pdic:
-                stack.append(s[i])
-            elif stack and pdic[stack[-1]] == s[i]:
+        braceMap = {'(':')', '[':']', '{':'}'}
+        stack = []
+        for c in s:
+            if c in braceMap:
+                stack.append(c)
+            elif stack and c == braceMap[stack[-1]]:
                 stack.pop()
             else:
                 return False
-        if stack:
-            return False
-        else:
-            return True
+        return len(stack) == 0
