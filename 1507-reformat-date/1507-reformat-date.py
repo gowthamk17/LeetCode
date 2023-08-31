@@ -1,9 +1,5 @@
 class Solution:
     def reformatDate(self, date: str) -> str:
-        dates = date.split(' ')
-        dates[0] = dates[0].replace("st","").replace("rd","").replace("th","").replace("nd", "")
-        if len(dates[0]) == 1:
-            dates[0] = "0"+dates[0]
         monthDict = {
             "Jan": "01",
             "Feb": "02",
@@ -18,6 +14,8 @@ class Solution:
             "Nov": "11",
             "Dec": "12"
         }
-        dates[1] = monthDict[dates[1]]
-        return "-".join(dates[::-1])
+        new_date = date[-4:] + "-"
+        new_date += monthDict[date[5:8] if len(date)==13 else date[4:7]] + "-"
+        new_date += date[0:2] if len(date)==13 else "0"+date[0]
+        return new_date
         
