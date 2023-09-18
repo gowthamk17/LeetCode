@@ -4,13 +4,11 @@ public:
         std::unordered_map<int, int> numsMap;
         int count = 0;
         for(int i = 0; i < nums.size(); i++) {
-            int n = nums[i];
-            int diff = k - n;
-            if(numsMap[diff] && numsMap[diff] > 0) {
+            if(numsMap[k-nums[i]] && numsMap[k-nums[i]] > 0) {
                 count++;
-                numsMap[diff]--;
+                numsMap[k-nums[i]]--;
             } else {
-                numsMap[n] = numsMap[n] ? numsMap[n]+1 : 1;
+                numsMap[nums[i]] = numsMap[nums[i]] ? numsMap[nums[i]]+1 : 1;
             }
         }
         return count;
