@@ -3,7 +3,8 @@ public:
     int maxOperations(vector<int>& nums, int k) {
         std::unordered_map<int, int> numsMap;
         int count = 0;
-        for(int n : nums) {
+        for(int i = 0; i < nums.size(); i++) {
+            int n = nums[i];
             int diff = k - n;
             if(numsMap[diff] && numsMap[diff] > 0) {
                 count++;
