@@ -12,8 +12,8 @@ public:
                 }
                 l++;
             }
-            maxSubLen = max(maxSubLen, (r-l)+1);   
+            maxSubLen = max(maxSubLen, (r-l));   
         }
-        return --maxSubLen;
+        return maxSubLen;
     }
 };
