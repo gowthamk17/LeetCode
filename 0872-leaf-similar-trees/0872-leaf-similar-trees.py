@@ -12,19 +12,9 @@ class Solution:
                 if not root.left and not root.right:
                     leafs.append(root.val)
                 if root.left:
-                    leafs = leafs + dfs(root.left)
+                    leafs += dfs(root.left)
                 if root.right:
-                    leafs = leafs + dfs(root.right)
+                    leafs += dfs(root.right)
             return leafs
-    
-        first = dfs(root1)
-        second = dfs(root2)
-        print(first)
-        print(second)
-        if len(first) == len(second):
-            for i in range(len(first)):
-                if first[i] != second[i]:
-                    return False
-            return True
-        else:
-            return False
+        return dfs(root1) == dfs(root2)
+        
