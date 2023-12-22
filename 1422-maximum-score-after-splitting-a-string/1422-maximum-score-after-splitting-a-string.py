@@ -7,8 +7,7 @@ class Solution:
         max_score = -1
         zero_count = 0
         for i in range(len(s)-1):
-            c = s[i]
-            if c == "0":
+            if s[i] == "0":
                 zero_count += 1
             else:
                 one_count -= 1
